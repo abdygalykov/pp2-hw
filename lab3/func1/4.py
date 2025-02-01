@@ -1,4 +1,5 @@
 def filter_prime(nums):
+    b = []
     for x in nums:
         check = True
         if x <= 1:
@@ -6,10 +7,11 @@ def filter_prime(nums):
         for i in range(2, int(x**0.5) + 1):
             if x % i == 0:
                 check = False
-        if check == True :
-            return x 
+                break
+        if check:
+            b.append(x)
+    return b
 
+a = [1,2,3,4,5,6,7,8,9]
 
-nums = [1,2 , 4, 7, 9, 3, 11]
-
-print(filter_prime(nums))
+print(filter_prime(a))
