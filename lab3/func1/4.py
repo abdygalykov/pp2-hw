@@ -7,7 +7,7 @@ def filter_prime(nums):
         for i in range(2, int(x**0.5) + 1):
             if x % i == 0:
                 check = False
-                break
+                break 
         if check:
             b.append(x)
     return b
@@ -15,3 +15,7 @@ def filter_prime(nums):
 a = [1,2,3,4,5,6,7,8,9]
 
 print(filter_prime(a))
+
+
+#басында беру как прайм сан бар деп, сол ушин чек = тру
+#если болмаса, то ол просто фолс-ка айналады

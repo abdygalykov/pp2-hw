@@ -15,6 +15,6 @@ def PermutationsOfString(text):
         
     return result
 
-text = "abc"
+text = "abcd"
 print(PermutationsOfString(text))
 
