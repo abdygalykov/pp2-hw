@@ -1,4 +1,5 @@
-{
+import json
+x = {
     "totalCount": "400",
     "imdata": [
         {
@@ -795,3 +796,7 @@
         }
     ]
 }
+
+a = json.dumps(x, indent=2)
+
+print(a)
