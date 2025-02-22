@@ -1,11 +1,12 @@
 import re
 
 def bool(text):
-    x = re.findall("ab{2,3}", text)
+    x = re.findall("[a-z]_", text)
     if x:
         return True
     else:
         return False
     
-a = "abb"
+a = "asdada_sdasd"
+
 print(bool(a))
