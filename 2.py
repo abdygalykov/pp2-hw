@@ -12,7 +12,7 @@ current_track = 0
 def play_music():
     pygame.mixer.music.load(tracks[current_track])
     pygame.mixer.music.play()
-
+6
 def stop_music():
     pygame.mixer.music.stop()
 
