@@ -37,6 +37,7 @@ from config import load_config
 # """
 # if we want to insert multiple vendor rows then we will use this code instead of insert_vendor()
 def insert_many_vendors(vendor_list):
+    """ Insert multiple vendors into the vendors table  """
 
     sql = "INSERT INTO vendors(vendor_name) VALUES(%s) RETURNING *"
     config = load_config()
@@ -50,6 +51,8 @@ def insert_many_vendors(vendor_list):
             conn.commit()
     except (Exception, psycopg2.DatabaseError) as error:
         print(error)
+
+if __name__ == '__main__':
 
     insert_many_vendors([
         ('AKM Semiconductor Inc.',),
