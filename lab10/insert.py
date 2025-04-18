@@ -2,40 +2,40 @@ import psycopg2
 from config import load_config
 
 
-def insert_vendor(vendor_name):
-    """ Insert a new vendor into the vendors table """
+# def insert_vendor(vendor_name):
+#     """ Insert a new vendor into the vendors table """
 
-    sql = """INSERT INTO vendors(vendor_name)
-             VALUES(%s) RETURNING vendor_id;"""
+#     sql = """INSERT INTO vendors(vendor_name)
+#              VALUES(%s) RETURNING vendor_id;"""
 
-    vendor_id = None
-    config = load_config()
+#     vendor_id = None
+#     config = load_config()
 
-    try:
-        with  psycopg2.connect(**config) as conn:
-            with  conn.cursor() as cur:
-                # execute the INSERT statement
-                cur.execute(sql, (vendor_name,))
+#     try:
+#         with  psycopg2.connect(**config) as conn:
+#             with  conn.cursor() as cur:
+#                 # execute the INSERT statement
+#                 cur.execute(sql, (vendor_name,))
 
-                # get the generated id back
-                rows = cur.fetchone()
-                if rows:
-                    vendor_id = rows[0]
+#                 # get the generated id back
+#                 rows = cur.fetchone()
+#                 if rows:
+#                     vendor_id = rows[0]
 
-                # commit the changes to the database
-                conn.commit()
-    except (Exception, psycopg2.DatabaseError) as error:
-        print(error)
-    finally:
-        return vendor_id
-
-
-if __name__ == '__main__':
-    insert_vendor("3M Co.")
+#                 # commit the changes to the database
+#                 conn.commit()
+#     except (Exception, psycopg2.DatabaseError) as error:
+#         print(error)
+#     finally:
+#         return vendor_id
 
 
-"""
-if we want to insert multiple vendor rows then we will use this code instead of insert_vendor()
+# if __name__ == '__main__':
+#     insert_vendor("3M Co.")
+
+
+# """
+# if we want to insert multiple vendor rows then we will use this code instead of insert_vendor()
 def insert_many_vendors(vendor_list):
 
     sql = "INSERT INTO vendors(vendor_name) VALUES(%s) RETURNING *"
@@ -59,5 +59,3 @@ def insert_many_vendors(vendor_list):
         ('Foster Electric Co. Ltd.',),
         ('Murata Manufacturing Co. Ltd.',)
     ])
-    
-"""
