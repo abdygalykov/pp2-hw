@@ -11,6 +11,8 @@ def collecting_info_by_pattern(pattern):
                             ('%' + pattern + '%', '%' + pattern + '%'))
                 rows = cur.fetchall()
                 print("Количество найденных записей: ", cur.rowcount)
+                # Ищет записи по частичному совпадению в имени или номере телефона
+                # Пример: шаблон "John" найдет "Johnny", "555" найдет "555-1234"
                 for row in rows:
                     print(row)
     except (Exception, psycopg2.DatabaseError) as error:
@@ -108,7 +110,7 @@ if __name__ == '__main__':
     if operation == "1":
         name = input("Введите имя нового контакта: ")
         phone_number = input("Введите номер телефона нового контакта: ")
-        insert_or_update_user(name, phone_number)
+        insert_or_update_user(first_name, phone_number)
 
     elif operation == "2":
         name = input("Введите имя контакта для обновления: ")
